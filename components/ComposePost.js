@@ -13,13 +13,13 @@ const ComposePost = ({onSubmit, editTitle, editContent, show, editIndex}) => {
           style={styles.input}
           value={title}
           placeholder="Title"
-          onChangeText={text => setTitle(text)}
+          onChangeText={(text) => setTitle(text)}
         />
         <TextInput
           style={styles.input}
           value={content}
           placeholder="Content"
-          onChangeText={text => {
+          onChangeText={(text) => {
             setContent(text);
           }}
         />

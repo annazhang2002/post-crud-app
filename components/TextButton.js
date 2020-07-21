@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 const TextButton = ({btnText, btnPressed, style}) => {
@@ -7,6 +8,12 @@ const TextButton = ({btnText, btnPressed, style}) => {
       <Text style={styles.text}>{btnText}</Text>
     </TouchableOpacity>
   );
+};
+
+TextButton.propTypes = {
+  btnText: PropTypes.string,
+  btnPressed: PropTypes.func,
+  style: PropTypes.array,
 };
 
 const styles = StyleSheet.create({

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, FlatList, StyleSheet, View} from 'react-native';
+import {SafeAreaView, Text, FlatList, StyleSheet} from 'react-native';
 
 import Post from './components/Post';
 import TextButton from './components/TextButton';
@@ -15,8 +15,8 @@ const App = () => {
   const [composeType, setComposeType] = useState('new');
   const [editPostIndex, setEditPostIndex] = useState(0);
 
-  const deletePost = postIndex => {
-    setPosts(prevItems => {
+  const deletePost = (postIndex) => {
+    setPosts((prevItems) => {
       return prevItems.filter((item, index) => index != postIndex);
     });
     if (editPostIndex == postIndex) {
@@ -38,7 +38,7 @@ const App = () => {
   };
 
   const updatePost = (postTitle, postContent, postIndex) => {
-    setPosts(prevItems => {
+    setPosts((prevItems) => {
       const newPosts = [...prevItems];
       newPosts[postIndex] = {title: postTitle, content: postContent};
       return newPosts;
@@ -47,7 +47,7 @@ const App = () => {
   };
 
   const createPost = (postTitle, postContent) => {
-    setPosts(prevItems => {
+    setPosts((prevItems) => {
       return [{title: postTitle, content: postContent}, ...prevItems];
     });
     closeDraft();
@@ -117,10 +117,10 @@ const App = () => {
           />
         </SafeAreaView>
       ) : (
-        <SafeAreaView style={styles.postContainer}>
-          <Text style={styles.noPostsText}>No Posts</Text>
-        </SafeAreaView>
-      )}
+          <SafeAreaView style={styles.postContainer}>
+            <Text style={styles.noPostsText}>No Posts</Text>
+          </SafeAreaView>
+        )}
     </SafeAreaView>
   );
 };
@@ -153,4 +153,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-

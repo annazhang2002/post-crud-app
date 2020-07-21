@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
@@ -24,6 +25,16 @@ const Post = ({post, deletePost, index, editPost}) => (
     </TouchableOpacity>
   </View>
 );
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.arrayOf(PropTypes.string),
+    content: PropTypes.arrayOf(PropTypes.string),
+  }),
+  deletePost = PropTypes.func,
+  index = PropTypes.number,
+  editPost = PropTypes.func,
+};
 
 const styles = StyleSheet.create({
   item: {
